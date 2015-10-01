@@ -1,20 +1,24 @@
-package com.usjt.meuappaula12;
+package com.usjt.meuappaula12.controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.usjt.meuappaula12.R;
+import com.usjt.meuappaula12.controller.ListaVooActivity;
+
 public class MainActivity extends AppCompatActivity {
 
+    public final static String ORIGEM = "br.usjt.ORIGEM";
+    public final static String DESTINO = "br.usjt.DESTINO";
+
+    String origem, destino;
     Spinner spinnerOrigem, spinnerDestino;
     Button btnConsultar;
-    String origem, destino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
         destino = "";
 
         btnConsultar = (Button) findViewById(R.id.botao_enviar);
+
         spinnerOrigem = (Spinner) findViewById(R.id.dropdown_origem);
-        spinnerOrigem.setOnItemSelectedListener(new OrigemSelecionada());
         spinnerDestino = (Spinner) findViewById(R.id.dropdown_destino);
+
+        spinnerOrigem.setOnItemSelectedListener(new OrigemSelecionada());
         spinnerDestino.setOnItemSelectedListener(new DestinoSelecionado());
     }
 
@@ -58,10 +64,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public final static String ORIGEM = "br.usjt.origem";
-    public final static String DESTINO = "br.usjt.destino";
-
-    public void consultarVoo(View view) {
+    public void consultar(View view) {
         String pOrigem = this.origem.equals("Escolha seu país") ?  "" : origem;
         String pDestino = this.origem.equals("Escolha seu país") ?  "" : destino;
 

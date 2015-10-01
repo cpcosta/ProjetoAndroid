@@ -1,10 +1,18 @@
 <resources>
-    <string name="app_name">MeuAppAula12</string>
+    <string name="app_name">Sistema Aéreo</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- labels presentes no activity_main -->
     <string name="label_origem">Origem: </string>
     <string name="label_destino">Destino: </string>
-    <string name="botao_enviar">Enviar</string>
+    <string name="label_enviar">Enviar</string>
+
+    <!-- labels presente no activity detalhe -->
+    <string name="label_preco">Preço</string>
+
+    <!-- labels gerais -->
+    <string name="title_activity_lista_voo">Sistema Aéreo</string>
 
     <string-array name="countries">
         <item>Escolha seu país</item>
@@ -17,7 +25,5 @@
         <item>Inglaterra</item>
         <item>Japão</item>
     </string-array>
-    <string name="title_activity_lista_voo">ListaVooActivity</string>
 
-    <string name="txt_lista_voo">Nenhum Voo!</string>
 </resources>

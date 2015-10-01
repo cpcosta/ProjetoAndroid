@@ -24,7 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_origem"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:paddingRight="15px"
                 />
 
@@ -47,9 +46,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_destino"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:paddingRight="15px"
                 />
+
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,9 +68,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceButton"
-                android:text="@string/botao_enviar"
-                android:onClick="consultarVoo"
+                android:text="@string/label_enviar"
+                android:onClick="consultar"
                 android:id="@+id/botao_enviar"/>
 
         </LinearLayout>
