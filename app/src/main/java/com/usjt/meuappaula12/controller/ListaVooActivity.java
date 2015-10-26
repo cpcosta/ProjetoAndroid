@@ -15,58 +15,61 @@ import com.usjt.meuappaula12.network.Especialista;
 import com.usjt.meuappaula12.R;
 import com.usjt.meuappaula12.model.Voo;
 
+import java.util.ArrayList;
+
 public class ListaVooActivity extends ActionBarActivity {
-
-    public final static String VOO = "br.usjt.VOO";
-
-    Activity atividade;
-    BaseAdapter adapter;
     ListView listView;
+    Activity atividade;
+    public final static String VOO = "br.usjt.VOO";
     Voo[] voos;
-    String[] lista;
+
+//    BaseAdapter adapter;
+//    String[] lista;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_voo);
-
         atividade = this;
 
         // objeto especialista, responsavel por listar os voos
-        Especialista especialista = new Especialista();
+//        Especialista especialista = new Especialista();
 
         Intent intent = getIntent();
+        voos = ((ArrayList<Voo>)intent.getSerializableExtra( MainActivity.VOOS )).toArray( new Voo[0] );
 
         // atribui os dados contidos na activity principal
-        String origem = intent.getStringExtra(MainActivity.ORIGEM);
-        String destino = intent.getStringExtra(MainActivity.DESTINO);
+//        String origem = intent.getStringExtra( MainActivity.ORIGEM );
+//        String destino = intent.getStringExtra( MainActivity.DESTINO );
 
         // cria um array de voos
-        voos = especialista.listarVoo(origem, destino).toArray(new Voo[0]);
+//        voos = especialista.listarVoo(origem, destino ).toArray(new Voo[0]);
 
         // cria uma lista de voos
-        listView = (ListView) findViewById(R.id.view_lista_cerveja);
+        listView = (ListView) findViewById( R.id.view_lista_ );
 
-        adapter = new VooAdapter(this, voos);
+        VooAdapter adapter = new VooAdapter( this, voos );
 
         // faz adaptacao no listview
-        listView.setAdapter(adapter);
+        listView.setAdapter( adapter );
 
         // cria uma array de String
-        lista = new String[voos.length];
+//        lista = new String[voos.length];
 
         // gera uma lista com nome dos voos
-        for (int i = 0; i < voos.length; i++) {
-            lista[i] = voos[i].getVoo();
-        }
+//        for (int i = 0; i < voos.length; i++)
+//        {
+//            lista[i] = voos[i].getVoo();
+//        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent intent = new Intent(atividade, DetalheVooActivity.class);
-                intent.putExtra(VOO, voos[position]);
+                Intent intent = new Intent( atividade, DetalheVooActivity.class );
+                intent.putExtra( VOO, voos[position] );
 
                 startActivity(intent);
             }

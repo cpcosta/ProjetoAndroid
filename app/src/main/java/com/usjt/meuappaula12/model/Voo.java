@@ -63,7 +63,7 @@ public class Voo implements Comparable<Voo> , Serializable {
 
     @Override
     public String toString() {
-        return "Voo{" +
+        return "Voos {" +
                 "voo='" + voo + '\'' +
                 ", origem='" + origem + '\'' +
                 ", destino='" + destino + '\'' +
